@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 
-current_value = 0
-countdown = 90
+present_value = 0
+count = 90
 
-for num in range(1, 27):
-    if num % 2 == 0:
-        current_value = countdown
+for number in range(1, 27):
+    if number % 2 == 0:
+        present_value = count
     else:
-        current_value = 123 - num
+        present_value = 123 - number
 
-    countdown -= 1
-    print("{}".format(chr(current_value)), end="")
+    count -= 1
+    print("{}".format(chr(present_value)), end="")
