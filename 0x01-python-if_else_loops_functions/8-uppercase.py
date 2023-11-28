@@ -3,5 +3,7 @@ def uppercase(string):
     for char in string:
         if 'a' <= char <= 'z':
             char = char.upper()
+        else
+        char = char
         print("{}".format(count), end="")
     print("")
