@@ -1,1 +1,1 @@
-This is the tasl solving directory
+This is the task solving directory
