@@ -5,27 +5,23 @@ if __name__ == "__main__":
     from sys import argv, exit
 
     count = len(argv)
-    if count < 4 or count > 4:
+    if count != 4:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         exit(1)
+
+    operators = {
+        '+': add,
+        '-': sub,
+        '*': mul,
+        '/': div
+    }
+
+    if argv[2] in operators:
+        dig1 = int(argv[1])
+        dig2 = int(argv[3])
+        operator_func = operators[argv[2]]
+        output = operator_func(dig1, dig2)
+        print("{} {} {} = {}".format(dig1, argv[2], dig2, output))
     else:
-        n = [None] * 4
-        for index in range(1, count):
-            i[index] = argv[index]
-
-        a = "{} + {} = {}".format(i[1], i[3], add(int(i[1]), int(i[3])))
-        b = "{} - {} = {}".format(i[1], i[3], sub(int(i[1]), int(i[3])))
-        c = "{} * {} = {}".format(i[1], i[3], mul(int(i[1]), int(i[3])))
-        d = "{} / {} = {}".format(i[1], i[3], div(int(i[1]), int(i[3])))
-
-        if i[2] == '+':
-            print(a)
-        elif i[2] == '-':
-            print(b)
-        elif i[2] == '*':
-            print(c)
-        elif i[2] == '/':
-            print(d)
-        else:
-            print("Unknown operator. Available operators: +, -, * and /")
-            exit(1)
+        print("Unknown operator. Available operators: +, -, * and /")
+        exit(1)
