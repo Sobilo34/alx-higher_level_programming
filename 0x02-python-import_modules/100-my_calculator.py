@@ -13,10 +13,14 @@ if __name__ == "__main__":
         for index in range(1, count):
             nul[index] = argv[index]
 
-        a = "{} + {} = {}".format(nul[1], nul[3], add(int(nul[1]), int(nul[3])))
-        b = "{} + {} = {}".format(nul[1], nul[3], sub(int(nul[1]), int(nul[3])))
-        c = "{} + {} = {}".format(nul[1], nul[3], mul(int(nul[1]), int(nul[3])))
-        d = "{} + {} = {}".format(nul[1], nul[3], div(int(nul[1]), int(nul[3])))
+        a = "{} + {} = {}".format(nul[1], nul[3],
+                add(int(nul[1]), int(nul[3])))
+        b = "{} + {} = {}".format(nul[1], nul[3],
+                sub(int(nul[1]), int(nul[3])))
+        c = "{} + {} = {}".format(nul[1], nul[3],
+                mul(int(nul[1]), int(nul[3])))
+        d = "{} + {} = {}".format(nul[1], nul[3],
+                div(int(nul[1]), int(nul[3])))
         
         if nul[2] == '+':
             print(a)
