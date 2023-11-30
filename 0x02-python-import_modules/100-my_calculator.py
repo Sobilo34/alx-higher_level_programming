@@ -9,28 +9,23 @@ if __name__ == "__main__":
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         exit(1)
     else:
-        nul = [None] * 4
+        n = [None] * 4
         for index in range(1, count):
-            nul[index] = argv[index]
+            i[index] = argv[index]
 
-        a = "{} + {} = {}".format(nul[1], nul[3],
-                add(int(nul[1]), int(nul[3])))
-        b = "{} + {} = {}".format(nul[1], nul[3],
-                sub(int(nul[1]), int(nul[3])))
-        c = "{} + {} = {}".format(nul[1], nul[3],
-                mul(int(nul[1]), int(nul[3])))
-        d = "{} + {} = {}".format(nul[1], nul[3],
-                div(int(nul[1]), int(nul[3])))
-        
-        if nul[2] == '+':
+        a = "{} + {} = {}".format(i[1], i[3], add(int(i[1]), int(i[3])))
+        b = "{} - {} = {}".format(i[1], i[3], sub(int(i[1]), int(i[3])))
+        c = "{} * {} = {}".format(i[1], i[3], mul(int(i[1]), int(i[3])))
+        d = "{} / {} = {}".format(i[1], i[3], div(int(i[1]), int(i[3])))
+
+        if i[2] == '+':
             print(a)
-        elif nul[2] == '-':
+        elif i[2] == '-':
             print(b)
-        elif nul[2] == '*':
+        elif i[2] == '*':
             print(c)
-        elif nul[2] == '/':
+        elif i[2] == '/':
             print(d)
         else:
             print("Unknown operator. Available operators: +, -, * and /")
             exit(1)
-
