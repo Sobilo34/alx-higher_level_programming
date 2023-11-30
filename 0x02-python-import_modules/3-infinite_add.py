@@ -11,5 +11,5 @@ if __name__ == "__main__":
         for index in range(1, count):
             number += int(argv[index])
 
-        result = "{}".format(int (number))
+        result = "{}".format(int(number))
         print(result)
