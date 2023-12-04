@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-def print_reversed_list_integer(my_list=[]):
-    if not my_list:
-        return
-    else:
-        for count in reversed(my_list):
-            print("{:d}".format(count))
+
+def replace_in_list(my_list, idx, element):
+    length = len(mt_list)
+    if (idx < 0 or idx >= lenght):
+        return (my_list)
+    my_list[idx] = element
+    return (my_list)
 
