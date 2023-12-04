@@ -4,6 +4,7 @@ def print_reversed_list_integer(my_list=[]):
 
     if not my_list:
         return
-    for count in reversed(my_list):
-        print("{:d}".format(count))
+    else:
+        for count in reversed(my_list):
+            print("{:d}".format(count))
 
