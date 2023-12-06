@@ -1,6 +1,9 @@
 #include <Python.h>
 #include <stdio.h>
 
+void print_bytes_info(PyObject *p);
+void print_list_info(PyObject *p);
+
 /**
  * print_bytes_info - THis is a function that Prints bytes object information
  * @p: The python bytes object
