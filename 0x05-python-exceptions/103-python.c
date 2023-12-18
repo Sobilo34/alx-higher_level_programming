@@ -5,7 +5,7 @@ void print_python_bytes(PyObject *p);
 void print_python_float(PyObject *p);
 
 /**
- * ppython_list - This funcion is to print basic info about Python lists
+ * print_python_list - This funcion is to print basic info about Python lists
  * @p: A PyObject list object
  */
 void print_python_list(PyObject *p)
@@ -42,7 +42,7 @@ void print_python_list(PyObject *p)
 }
 
 /**
- * ppython_bytes - Prints basic info about Python byte objects.
+ * print_python_bytes - Prints basic info about Python byte objects.
  * @p: A PyObject byte object.
  */
 void print_python_bytes(PyObject *p)
@@ -79,7 +79,7 @@ void print_python_bytes(PyObject *p)
 }
 
 /**
- * ppython_float - This prints that basic info about Python float objects
+ * print_python_float - This prints that basic info about Python float objects
  * @p: A PyObject float object
  */
 void print_python_float(PyObject *p)
