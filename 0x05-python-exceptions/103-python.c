@@ -1,14 +1,14 @@
 #include <Python.h>
 
-void ppython_list(PyObject *p);
-void ppython_bytes(PyObject *p);
-void ppython_float(PyObject *p);
+void print_python_list(PyObject *p);
+void print_python_bytes(PyObject *p);
+void print_python_float(PyObject *p);
 
 /**
  * ppython_list - This funcion is to print basic info about Python lists
  * @p: A PyObject list object
  */
-void ppython_list(PyObject *p)
+void print_python_list(PyObject *p)
 {
 	Py_ssize_t size, mem, a;
 	const char *type;
@@ -35,17 +35,17 @@ void ppython_list(PyObject *p)
 		type = list->ob_item[a]->ob_type->tp_name;
 		printf("Element %ld: %s\n", a, type);
 		if (strcmp(type, "bytes") == 0)
-			ppython_bytes(list->ob_item[a]);
+			print_python_bytes(list->ob_item[a]);
 		else if (strcmp(type, "float") == 0)
-			ppython_float(list->ob_item[a]);
+			print_python_float(list->ob_item[a]);
 	}
 }
 
 /**
- * print_python_bytes - Prints basic info about Python byte objects.
+ * ppython_bytes - Prints basic info about Python byte objects.
  * @p: A PyObject byte object.
  */
-void ppython_bytes(PyObject *p)
+void print_python_bytes(PyObject *p)
 {
 	Py_ssize_t size, a;
 	PyBytesObject *bytes = (PyBytesObject *)p;
@@ -82,7 +82,7 @@ void ppython_bytes(PyObject *p)
  * ppython_float - This prints that basic info about Python float objects
  * @p: A PyObject float object
  */
-void ppython_float(PyObject *p)
+void print_python_float(PyObject *p)
 {
 	char *bufa = NULL;
 
