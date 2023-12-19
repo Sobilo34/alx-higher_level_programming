@@ -4,6 +4,7 @@
 class Square that defines a square by: (based on 4-square.py
 """
 
+
 class Square:
     """To instantiate variable and raise errors for exeptions"""
     def __init__(self, size=0):
@@ -30,6 +31,7 @@ class Square:
                 print("#" * self.__size)
         else:
             print()
+
 
 if __name__ == "__main__":
     square1 = Square(5)
