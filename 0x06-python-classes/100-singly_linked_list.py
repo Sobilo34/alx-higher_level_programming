@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""
-A class Node that defines a node of a singly linked list
+"""This is to define a class node for singly linked list"""
 
 
-"""class Node:
-    """ Instantiating variables and raising errors for exceptions"""
+class Node:
+    """This is to represent node"""
+
     def __init__(self, data, next_node=None):
         self.data = data
         self.next_node = next_node
@@ -25,35 +25,31 @@ A class Node that defines a node of a singly linked list
 
     @next_node.setter
     def next_node(self, value):
-        if not isinstance(value, Node) and value is not None:
-            raise TypeError("next_node must be a Node object")
+        if value is not None and not isinstance(value, Node):
+            raise TypeError("next_node must be a Node object or None")
         self.__next_node = value
 
 
 class SinglyLinkedList:
     def __init__(self):
-        self.__head = None
-
-    def __str__(self):
-        string = ""
-        tmp = self.__head
-        while tmp is not None:
-            string += str(tmp.data)
-            tmp = tmp.next_node
-            if tmp is not None:
-                string += "\n"
-        return string
+        self.head = None
 
     def sorted_insert(self, value):
-        new = Node(value)
-        if self.__head is None or new.data < self.__head.data:
-            new.next_node = self.__head
-            self.__head = new
-            return
+        new_node = Node(value)
+        if self.head is None or value < self.head.data:
+            new_node.next_node = self.head
+            self.head = new_node
+        else:
+            curr = self.head
+            while curr.next_node is not None and curr.next_node.data < value:
+                curr = curr.next_node
+            new_node.next_node = curr.next_node
+            curr.next_node = new_node
 
-        tmp = self.__head
-        while tmp.next_node is not None and new.data > tmp.next_node.data:
-            tmp = tmp.next_node
-        new.next_node = tmp.next_node
-        tmp.next_node = new
-
+    def __str__(self):
+        result = []
+        curr = self.head
+        while curr is not None:
+            result.append(str(curr.data))
+            curr = curr.next_node
+        return '\n'.join(result)
