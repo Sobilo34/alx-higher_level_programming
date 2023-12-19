@@ -31,13 +31,3 @@ class Square:
                 print("#" * self.__size)
         else:
             print()
-
-
-if __name__ == "__main__":
-    square1 = Square(5)
-    print("Area of square1:", square1.area())
-    square1.my_print()
-
-    square2 = Square()
-    print("Area of square2:", square2.area())
-    square2.my_print()
