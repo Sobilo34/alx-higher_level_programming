@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """Write a class Rectangle that defines a rectangle by:
-(based on 6-rectangle.py)
-
-"""
+    (based on 8-rectangle.py"""
 
 
 class Rectangle:
@@ -15,6 +13,11 @@ class Rectangle:
         self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
+
+    @classmethod
+    def square(cls, size=0):
+        """makes new square"""
+        return (cls(size, size))
 
     @property
     def width(self):
@@ -60,8 +63,8 @@ class Rectangle:
         """mod string object"""
         if self.height == 0 or self.width == 0:
             return ""
-        return ('\n'.join("{}".format(self.print_symbol) * self.width
-            for i in range(self.height)))
+        return ('\n'.join("{}".format(
+            self.print_symbol) * self.width for i in range(self.height)))
 
     def __repr__(self):
         """show way to replicate the class"""
@@ -71,3 +74,13 @@ class Rectangle:
         """detect when class is deleted"""
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
+
+    def bigger_or_equal(rect_1, rect_2):
+        """return bigger area"""
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError('rect_1 must be an instance of Rectangle')
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError('rect_2 must be an instance of Rectangle')
+        if rect_1.area() >= rect_2.area():
+            return rect_1
+        return rect_2
