@@ -1,5 +1,11 @@
 #!/usr/bin/python3
 
+"""
+class Rectangle that defines a rectangle by: (based on 1-rectangle.py)
+with applicaion of private and public instance attributes
+"""
+
+
 class Rectangle:
     def __init__(self, width=0, height=0):
         """
