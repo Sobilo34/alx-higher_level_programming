@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-a class Write a class Rectangle that defines a rectangle by: (based on 2-rectangle.py)
+a class Write a class Rectangle that defines a rectangle
+by: (based on 2-rectangle.py)
 """
 
 
@@ -50,7 +51,8 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-        """public instance attribute that returns the area of the rectangle"""
+        """public instance attribute that returns
+            the area of the rectangle"""
         return self.__width * self.__height
 
     def perimeter(self):
@@ -66,4 +68,4 @@ class Rectangle:
         _str = ""
         for counter in range(self.height):
             _str = _str + "#" * self.width + "\n"
-        return _str.rstrip() 
+        return _str.rstrip()
