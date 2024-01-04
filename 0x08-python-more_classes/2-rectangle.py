@@ -6,7 +6,7 @@ with applicaion of private and public instance attributes
 
 
 class Rectangle:
-    """ 
+    """
     Instantiation spot
     """
     def __init__(self, width=0, height=0):
