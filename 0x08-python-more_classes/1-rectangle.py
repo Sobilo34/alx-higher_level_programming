@@ -6,6 +6,7 @@ class Rectangle:
         self.height = height
 
     @property
+    #now we call on the property
     def width(self):
         return self.__width
 
