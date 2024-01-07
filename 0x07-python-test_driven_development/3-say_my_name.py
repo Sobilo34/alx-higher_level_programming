@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-This is  a function that prints a square with the character #.
+This is  a function that prints My name is <first name> <last name>
+
 """
 
 
