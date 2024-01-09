@@ -4,6 +4,7 @@ This is  a class Student that defines a
 student by: (based on 9-student.py)
 """
 
+
 class Student:
     """ Declaration of the Student class """
 
