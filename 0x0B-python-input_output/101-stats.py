@@ -6,46 +6,39 @@ Input format: <IP Address> - [<date>] "GET /projects/260 HTTP/1.1"
 """
 
 
-def print_stats(size, status_codes):
-    """
-    Declares the function to print the computed statistics
-    """
-    print("File size: {}".format(size))
-    for key in sorted(status_codes):
-        print("{}: {}".format(key, status_codes[key]))
+import sys
 
+metrics = {
+    'total_size': 0,
+    'status_codes': {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0},
+    'line_count': 0
+}
 
-if __name__ == "__main__":
-    import sys
+try:
+    for line in sys.stdin:
+        parts = line.split()
 
-    size = 0
-    status_codes = {}
-    valid_codes = ['200', '301', '400', '401', '403', '404', '405', '500']
-    count = 0
-
-    try:
-        for line in sys.stdin:
-            if count == 10:
-                print_stats(size, status_codes)
-                count = 1
-            else:
-                count += 1
-
-            line = line.split()
-
+        if len(parts) >= 7:
             try:
-                size += int(line[-1])
-            except (IndexError, ValueError):
-                pass
+                status_code, file_size = int(parts[-2]), int(parts[-1])
+                metrics['total_size'] += file_size
+                metrics['status_codes'][status_code] += 1
+                metrics['line_count'] += 1
 
-            try:
-                if line[-2] in valid_codes:
-                    status_codes[line[-2]] = status_codes.get(line[-2], 0) + 1
-            except IndexError:
-                pass
+                if metrics['line_count'] % 10 == 0:
+                    print(f"File size: {metrics['total_size']}")
+                    for code in sorted(metrics['status_codes']):
+                        if metrics['status_codes'][code] > 0:
+                            print(f"{code}: {metrics['status_codes'][code]}")
 
-        print_stats(size, status_codes)
+            except ValueError:
+                continue
 
-    except KeyboardInterrupt:
-        print_stats(size, status_codes)
-        raise
+except KeyboardInterrupt:
+    pass
+
+print(f"File size: {metrics['total_size']}")
+for code in sorted(metrics['status_codes']):
+    if metrics['status_codes'][code] > 0:
+        print(f"{code}: {metrics['status_codes'][code]}")
+
