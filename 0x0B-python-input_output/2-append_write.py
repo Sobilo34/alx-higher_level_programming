@@ -8,6 +8,11 @@ Prototype: def append_write(filename="", text="")
 
 
 with open(filename, "a", encoding="UTF8") as the_file:
-    the_file.write(text)
+    """
+    This function appends a string at the end of the text
+    Argument:
+            filename - This is the name of the file to append in
+            text - This is the test to be appended
+    """
     val = the_file.write(text)
     return val
