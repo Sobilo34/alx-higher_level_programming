@@ -8,16 +8,22 @@ Must use your function load_from_json_file from 6-load_from_json_file.py
 """
 
 
-arg_length = len(sys.argv)  # to check number of cmd line args
+from sys import argv
+import json
 
-try:
-    # load exixting data from add-item.json
-    my_list = load_from_json_file('add_item.json')
-except FileNotFoundError:
-    my_list = []  # initialize empty list if it doesn't exist
+if __name__ == "__main__":
+    save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 
-for x in range(1, arg_length):
-    # append args to my_list
-    my_list.append(sys.argv[x])
-# update my_list with data from add-item.json
-save_to_json_file(my_list, 'add_item.json')
+    load_from_json_file = \
+        __import__('6-load_from_json_file').load_from_json_file
+
+    try:
+        add_item_data = load_from_json_file("add_item.json")
+
+        loaded_data = add_item_data + argv[1:]
+
+    except (FileNotFoundError, json.JSONDecodeError):
+        add_item_data = []
+        loaded_data = argv[1:]
+
+    save_to_json_file(loaded_data, "add_item.json")
