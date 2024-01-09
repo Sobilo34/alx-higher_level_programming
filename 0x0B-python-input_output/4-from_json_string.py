@@ -17,5 +17,5 @@ def from_json_string(my_str):
     """
     import json
 
-    the_output = json.load(my_str)
+    the_output = json.loads(my_str)
     return the_output
