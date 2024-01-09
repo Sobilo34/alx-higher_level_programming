@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-This is a module defines a function called `lookup` that takes an object as input
+This is a module defines a function called
+`lookup` that takes an object as input
 and returns a list of its available attributes and methods
 """
 

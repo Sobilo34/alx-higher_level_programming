@@ -1,21 +1,23 @@
-#!/usr/bin/python3
-
-"""
-This is a class that inherits properties and attributes from `list`
-"""
-
-
-class MyList(list):
-    """
-    This class will inherit the list
-    Methods: print_sorted(self)
-    """
-    def __init__(self):
-        """initializer for MyList"""
-        super().__init__()
-
-    def print_sorted(self):
-        """prints the list(sorted) in ascending order
-        type(int)
-        """
-        print(sorted(self))
+#!/usr/bin/python3 
+ """ 
+ Module: 1-my_list 
+ Contains the definition of the MyList class. 
+ """ 
+  
+  
+ class MyList(list): 
+     """ 
+     A class that inherits from the list class with additional functionality. 
+     """ 
+  
+     def __init__(self): 
+         """ 
+         To initialize a new instance of MyList.
+         """ 
+         super().__init__() 
+  
+     def print_sorted(self): 
+         """ 
+         The functuon print the list, but sorted in ascending order. 
+         """ 
+         print(sorted(self))

@@ -14,7 +14,7 @@ class Square(Rectangle):
 
     def __init__(self, size):
         """
-        This is to initializes a square with the given size 
+        This is to initializes a square with the given size
 
         Args:
             size (int): The size of the square.
