@@ -61,7 +61,7 @@ class Rectangle:
         if self.height == 0 or self.width == 0:
             return ""
         return ('\n'.join("{}".format(self.print_symbol) * self.width
-            for i in range(self.height)))
+                    for i in range(self.height)))
 
     def __repr__(self):
         """show way to replicate the class"""
