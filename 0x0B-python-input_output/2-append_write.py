@@ -14,6 +14,6 @@ def append_write(filename="", text=""):
             filename - This is the name of the file to append in
             text - This is the test to be appended
     """
-with open(filename, "a", encoding="UTF8") as the_file:
-    val = the_file.write(text)
-    return val
+    with open(filename, "a", encoding="UTF8") as the_file:
+        val = the_file.write(text)
+        return val
