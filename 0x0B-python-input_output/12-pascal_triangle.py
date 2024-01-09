@@ -25,7 +25,7 @@ def pascal_triangle(n):
 
         if a > 1:
             prev = triangle[a - 1]
-            for j in range(1, a):
+            for b in range(1, a):
                 new = prev[b - 1] + prev[b]
                 row.append(new)
 
@@ -34,4 +34,4 @@ def pascal_triangle(n):
 
         triangle.append(row)
 
-    return (triangle)
+    return triangle
