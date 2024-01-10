@@ -12,9 +12,12 @@ def add_integer(a, b=98):
     function that adds two integers.
     Args:
         a (int or float): The first number to add
-        b (int or float, optional): The second number to add(Default at 98)                             Raises:
-        TypeError: If either `a` or `b` is not an integer or float.                                     Returns:
-        int: The addition of `a` and `b` as an integer.                                                 """
+        b (int or float, optional): The second number to add(Default at 98)
+        Raises:
+        TypeError: If either `a` or `b` is not an integer or float.
+        Returns:
+        int: The addition of `a` and `b` as an integer.
+        """
     if not isinstance(a, (int, float)):
         raise TypeError("a must be an integer")
 
