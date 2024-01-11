@@ -2,13 +2,14 @@
  >>> mod = __import__("7-base_geometry") 
  >>> BaseGeometry = mod.BaseGeometry 
   
- # Class Documentation 
- >>> len(mod.__doc__) > 1 
- True 
-  
- # Class Documentation 
- >>> len(BaseGeometry.__doc__) > 1 
- True 
+# Class Documentation
+>>> len(mod.__doc__.strip()) > 1
+True
+
+# Class Documentation
+>>> len(BaseGeometry.__doc__.strip()) > 1
+True
+ 
   
  # Test Cases 
   
