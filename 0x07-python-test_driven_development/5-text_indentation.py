@@ -1,12 +1,15 @@
 #!/usr/bin/python3
 """
-This module provides a function to format text by adding 2 new lines after each '.', '?' and ':' character.
+This module provides a function
+to format text by adding 2 new lines after
+each '.', '?' and ':' character.
 """
 
 
 def text_indentation(text):
     """
-    This function prints a text with 2 new lines after each '.', '?' and ':' character
+    This function prints a text with 2 new lines
+    after each '.', '?' and ':' character
     """
     message = "text must be a string"
     if not isinstance(text, str):
