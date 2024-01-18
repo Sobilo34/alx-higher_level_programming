@@ -130,10 +130,6 @@ class Base:
     @staticmethod
     def draw(list_rectangles, list_squares):
         """Draws Rectangles and Squares using Turtle graphics"""
-        if 'DISPLAY' not in os.environ:
-            print("No display found. Exiting...")
-            return
-
         screen = turtle.Screen()
         screen.title("Drawing Rectangles and Squares")
         screen.bgcolor("white")
