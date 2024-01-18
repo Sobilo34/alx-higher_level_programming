@@ -1,0 +1,11 @@
+class TestSquare(unittest.TestCase):
+
+    def square_attributes_test(self):
+        """
+        Test specific attributes and behaviors of Square class
+        """
+        square_instance = Square(3)
+        self.assertEqual(square_instance.size, 3)
+
+        # Add more test cases for Square class
+

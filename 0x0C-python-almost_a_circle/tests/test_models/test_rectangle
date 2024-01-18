@@ -1,0 +1,11 @@
+class TestRectangle(unittest.TestCase):
+    def rect_attributes_test(self):
+        """
+        Unittest that test the attribute of the rectangle
+        """
+        rectg_instance = Rectangle(5, 10)
+        self.assertEqual(rectg_instance.width, 5)
+        self.assertEqual(rectg_instance.height, 10)
+
+        # Add more test cases for Rectangle class
+
