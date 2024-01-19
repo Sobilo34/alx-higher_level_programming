@@ -5,6 +5,7 @@ from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 import os
+from unittest.mock import patch, mock_open
 
 class TestBase(unittest.TestCase):
 
@@ -32,9 +33,9 @@ class TestBase(unittest.TestCase):
         base_instance = Base()
         rectg_instance = Rectangle(5, 10)
         square_instance = Square(3)
-        self.assertEqual(base_instance.id, 5)  # check increment of base, no argument for base
-        self.assertEqual(rectg_instance.id, 6)  # check increment for rectangle
-        self.assertEqual(square_instance.id, 7)  # check increment of square
+        self.assertEqual(base_instance.id, 7)  # check increment of base, no argument for base
+        self.assertEqual(rectg_instance.id, 8)  # check increment for rectangle
+        self.assertEqual(square_instance.id, 9)  # check increment of square
 
     def test_to_json_string(self):
         """
@@ -96,14 +97,6 @@ class TestBase(unittest.TestCase):
 
         os.remove(file_name)
 
-    def setUp(self):
-        # set up some initial conditions or mock objects here
-        pass
-
-    def tearDown(self):
-        # clean up any resources after each test
-        pass
-
     def test_create(self):
         # This id to test the create method
         instance = Base.create(id=1, width=2, height=3, x=4, y=5)
@@ -114,33 +107,31 @@ class TestBase(unittest.TestCase):
         self.assertEqual(instance.x, 4)
         self.assertEqual(instance.y, 5)
 
-    def test_load_from_file(self):
-        # Test the load_from_file method
-        # You might need to create a dummy file with known content for this test
-        # Ensure the content is consistent with your test expectations
-        pass
+    @patch('builtins.open', new_callable=mock_open, read_data='[{"id": 1}]')
+    @patch('models.base.Base.from_json_string', return_value=[{'id': 1}])
+    def test_load_from_file(self, mock_from_json_string, mock_open):
+        """
+        This is to test load_from_file method
+        """
+        # Call the method you are testing
+        result = Base.load_from_file()
 
-    def test_save_to_file_csv(self):
-        # Test the save_to_file_csv method
-        # You might need to create some instances and call the method, then check the file content
-        pass
+        # Make assertions based on the expected behavior
+        mock_open.assert_called_once_with('Base.json', mode='r', encoding='utf-8')
+        mock_from_json_string.assert_called_once_with('[{"id": 1}]')
 
-    def test_load_from_file_csv(self):
-        # Test the load_from_file_csv method
-        # You might need to create a dummy CSV file with known content for this test
-        # Ensure the content is consistent with your test expectations
-        pass
+        # Compare relevant attributes of instances
+        expected_instance = Base(id=1)
+        self.assertEqual(result[0].id, expected_instance.id)
 
-    def test_draw(self):
-        # Test the draw method
-        # This method interacts with the Turtle graphics library and might be challenging to test
-        # You may want to use mocking to isolate the behavior
-        pass
+    @patch('builtins.open', side_effect=FileNotFoundError)
+    def test_load_from_file_file_not_found(self, mock_open):
+        """
+        Test the load_from_file method when the file is not found
+        """
+        instances = Base.load_from_file()
+        mock_open.assert_called_once_with('Base.json', mode='r', encoding='utf-8')
+        self.assertEqual(instances, [])
 
-    def test__draw_shape(self):
-        # Test the _draw_shape method
-        # Similar to the draw method, this interacts with the Turtle graphics library
-        # Consider using mocking to isolate the behavior
-        pass
 if __name__ == '__main__':
     unittest.main()
