@@ -1,4 +1,7 @@
 -- A script that lists all shows from hbtn_0d_tvshows_rate by their rating
+-- Each record should display: tv_genres.name - rating sum
+-- Results must be sorted in descending order by their rating
+-- can use only one SELECT statement
 
 SELECT name, SUM(rate) AS rating
   FROM tv_genres AS g
