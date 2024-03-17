@@ -18,17 +18,13 @@ class Base:
     __nb_objects = 0  # Initializes the private class attribute
 
     def __init__(self, id=None):
+        """
+        Class constructor to initialize an instance
+        """
+        Base.__nb_objects += 1
         if id is not None:
-            """Assign the public instance attribute
-            id with the argument value
-            """
             self.id = id
         else:
-            """
-            Otherwise, increment __nb_objects and assign new
-            value to the public instance attribute id
-            """
-            Base.__nb_objects = Base.__nb_objects + 1
             self.id = Base.__nb_objects
 
     @staticmethod
@@ -70,9 +66,22 @@ class Base:
         """
         To return an instance with all attributes set
         """
-        my_instance = cls(1, 1)  # Creates a an instance with a dummy id
+        my_instance = cls()  # Creates a an instance with a dummy id
         my_instance.update(**dictionary)
         return my_instance
+
+    def update(self, *args, **kwargs):
+        """
+        This function assigns an argument *args to the
+        instance together with key-value **kwargs
+        """
+        if args:
+            attributes = ['id', 'width', 'height', 'x', 'y']
+            for loop, arg in enumerate(args):
+                setattr(self, attributes[loop], arg)
+        elif kwargs:
+            for key_value, index in kwargs.items():
+                setattr(self, key_value, index)
 
     @classmethod
     def load_from_file(cls):
