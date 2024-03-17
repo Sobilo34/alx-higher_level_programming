@@ -19,16 +19,12 @@ def main():
     )
 
     cursor = db.cursor()
-
-    name = argv[4]
-    _query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(
-                        name)
-    cursor.execute(_query)
-
-    states = cursor.fetchall()
-    for state in states:
-        print(state)
-
+    cursor.execute("SELECT * FROM states\
+    WHERE name = '{}'\
+    ORDER BY states.id ASC".format(argv[4]))
+    for row in cursor.fetchall():
+        if row[1] == argv[4]:
+            print(row)
     cursor.close()
     db.close()
 
