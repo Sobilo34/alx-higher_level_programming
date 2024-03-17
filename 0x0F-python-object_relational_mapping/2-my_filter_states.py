@@ -21,7 +21,7 @@ def main():
 
     name = argv[4]
     the_query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(name)
-    cusrsor.execute(the_query)
+    cursor.execute(the_query)
 
     states = cursor.fetchall()
     for state in states:
