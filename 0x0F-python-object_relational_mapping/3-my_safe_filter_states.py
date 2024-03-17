@@ -8,6 +8,7 @@ where name matches the provided argument
 import MySQLdb
 from sys import argv
 
+
 def main():
     if len(argv) != 5:
         print("Usage: {} <username> <password> <database> <state_name>".format(
@@ -34,6 +35,7 @@ def main():
 
     cursor.close()
     db.close()
+
 
 if __name__ == "__main__":
     main()
