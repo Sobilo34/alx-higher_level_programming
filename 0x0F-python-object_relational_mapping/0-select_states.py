@@ -12,7 +12,7 @@ Code should not be executed when imported.
 import MySQLdb
 from sys import argv
 
-if __name__ == '__main__':
+def main():
     db = MySQLdb.connect(
         host='localhost',
         port=3306,
@@ -29,3 +29,6 @@ if __name__ == '__main__':
 
     cursor.close()
     db.close()
+
+if __name__ == '__main__':
+    main()
