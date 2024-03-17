@@ -19,7 +19,7 @@ def main():
     )
 
     cursor = db.cursor()
-    the_query = cursor.execute("SELECT * FROM states where name = '{}' "
+    the_query = ("SELECT * FROM states where name = '{}' "
                                 "ORDER BY id ASC").format(name)
     cusrsor.execute(the_query)
 
