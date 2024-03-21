@@ -12,6 +12,7 @@ Code should not be executed when imported.
 import MySQLdb
 from sys import argv
 
+
 def main():
     db = MySQLdb.connect(
         host='localhost',
@@ -29,6 +30,7 @@ def main():
 
     cursor.close()
     db.close()
+
 
 if __name__ == '__main__':
     main()
