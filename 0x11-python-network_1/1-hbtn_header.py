@@ -9,6 +9,7 @@ X-Request-Id variable found in the header of the response.
 import urllib.request
 import sys
 
+
 def main():
     url = sys.argv[1]
 
