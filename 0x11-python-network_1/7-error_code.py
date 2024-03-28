@@ -18,5 +18,6 @@ def main():
     else:
         print(response.text)
 
+
 if __name__ == "__main__":
     main()
